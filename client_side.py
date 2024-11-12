@@ -23,4 +23,4 @@ all_log_info = {"time": [time],
 
 
 df = pd.DataFrame.from_dict(all_log_info)
-df.to_csv(placemet + "/data.csv")
+df.to_csv(placemet + "/data.csv", mode='a')

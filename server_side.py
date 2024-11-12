@@ -5,16 +5,16 @@ info_counter = 0
 warn_counter = 0 
 
 with open("/home/ubuntu/linux/syslog") as syslog_file:
-    syslog = syslog_file.read()
+    syslog = syslog_file.readlines()
     
-syslog_file_in_list = syslog.split('\n')
 
-for line in syslog_file_in_list:
-    if "ERROR " in line:
+
+for line in syslog:
+    if " ERROR EC2RoleProvider" in line:
         error_counter += 1
-    elif "INFO " in line:
+    elif " INFO EC2RoleProvider" in line:
         info_counter += 1
-    elif "WARN " in line:
+    elif " WARN EC2RoleProvider" in line:
         warn_counter += 1
 
 
