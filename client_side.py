@@ -19,15 +19,15 @@ all_logs = my_ssh.runRemoteCommand("python3 /home/ubuntu/linux/server_side.py")
 
 all_log_in_local = all_logs[0].split("\n")
 print(all_log_in_local)
-time = all_log_in_local[0]
+time = int(float(all_log_in_local[0]))
 error = all_log_in_local[1]
 info = all_log_in_local[2]
 warn = all_log_in_local[3]
 
-all_log_info = {"time": [time],
-                "ERROR": [error],
-                "INFO": [info],
-                "WARN": [warn]
+all_log_info = {"time": time,
+                "ERROR": error,
+                "INFO": info,
+                "WARN": warn
                 }
 
 append_to_csv(file_location, all_log_info)
